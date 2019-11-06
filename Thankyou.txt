@@ -1,0 +1,3 @@
+https://medium.com/developer-space/if-you-faced-an-issue-like-couldnt-connect-to-docker-daemon-at-http-docker-localunixsocket-is-27b35f17d09d
+https://github.com/kyuupichan/electrumx/issues/464
+https://stackoverflow.com/questions/34711642/docker-mongo-image-connection-refused-from-other-container
