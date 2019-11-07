@@ -1,23 +1,18 @@
 version: '3'
 services:
-   mongo:
-      image: mongo
-      restart: always
-      ports:
-         - 27017:27017
-      command: mongod
-      environment:
-         MONGO_INITDB_ROOT_USERNAME: root
-         MONGO_INITDB_ROOT_PASSWORD: testmongo
-
-   db-admin:
-      image: mongo-express
-      ports:
-         - 8081:8081
-      environment:
-         ME_CONFIG_MONGODB_ADMINUSERNAME: root
-         ME_CONFIG_MONGODB_ADMINPASSWORD: testmongo
-
+   db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+   
+   adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+   
    web:
       build:
          context: .
@@ -27,5 +22,3 @@ services:
          - .:/pycode
       ports:
          - 8000:8000
-      expose:
-         - 8000
